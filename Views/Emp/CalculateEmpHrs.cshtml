@@ -1,0 +1,52 @@
+﻿@model Retail.Context.Revenue_details
+@{
+    ViewBag.Title = "CalculateEmpHrs";
+}
+
+<h2>Calculate Employee Hrs</h2>
+<style>
+    .error {
+        color: red
+    }
+</style>
+
+
+@using (Html.BeginForm("AddEmphrs", "Emp", FormMethod.Post))
+{
+    <div class="container">
+        <div class="form-group">
+            <label>Employee Name</label>
+            @Html.ValidationMessageFor(x => x.EmployeeID, "", new { @class = "error" })
+            @Html.DropDownListFor(x => x.EmployeeID, Model.EmpList, "Select Employee", new { @class = "form-control", name = "EmployeeName", id = "EmployeeID" })
+
+
+        </div>
+
+
+        <div class="form-group">
+            <label>Date</label>
+            @Html.ValidationMessageFor(x => x.work_date, "", new { @class = "error" })
+            @Html.TextBoxFor(m => m.work_date, new { type = "date", @class = "form-control" })
+        </div>
+
+        <div class="form-group">
+            <label>Hrs worked</label>
+            @Html.ValidationMessageFor(x => x.hrs_worked, "", new { @class = "error" })
+            @Html.TextBoxFor(m => m.hrs_worked, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <label>Shifts</label>
+            @Html.ValidationMessageFor(x => x.Shits, "", new { @class = "error" })
+            @Html.DropDownListFor(x => x.Shits, Model.Shiftlist, "Select Sifts", new { @class = "form-control", name = "Shifts", id = "ID" })
+        </div>
+
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="reset" class="btn btn-primary">Cancle</button>
+        </div>
+
+
+
+    </div>
+}
+

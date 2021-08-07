@@ -1,0 +1,45 @@
+﻿@model Retail.Context.Emp_details
+@{
+    ViewBag.Title = "Add Employee Details";
+}
+<h2>Add Employee Details</h2>
+<style>
+    .error{
+        color:red
+    }
+    div.myClass {
+        color: forestgreen;
+    }
+</style>
+
+@using (Html.BeginForm("AddEmp","Emp",FormMethod.Post))
+{
+<div class="container">
+    <div class="form-group">
+        @Html.HiddenFor(x => x.EmployeeID)
+        <label>Employee Name</label>
+        @Html.ValidationMessageFor(x => x.EmployeeName, "", new { @class = "error" })
+        @Html.TextBoxFor(x => x.EmployeeName, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <label>Address</label>
+        @Html.ValidationMessageFor(x => x.Address, "", new { @class = "error" })
+        @Html.TextAreaFor(x => x.Address, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <label>Mobile Number</label>
+        @Html.ValidationMessageFor(x => x.Mobile_No, "", new { @class = "error" })
+        @Html.TextBoxFor(x => x.Mobile_No, new { @class = "form-control", @row = "11" })
+    </div>
+    <div class="form-group">
+        <div class="myClass">
+            @Html.DisplayFor(x => x.message, "", new { @class = "msg" })
+        </div>
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="reset" class="btn btn-primary">Cancle</button>
+    </div>
+</div>
+}
+

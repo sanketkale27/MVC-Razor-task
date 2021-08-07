@@ -1,0 +1,30 @@
+﻿@model List<Retail.Models.empdetaillist>
+@{
+    ViewBag.Title = "EmpReport";
+}
+
+<h2>Employee Report</h2>
+
+<table class="table table-hover">
+    <tr>
+        <th>Employee Name</th>
+        <th>Date</th>
+        <th>Shifts</th>
+        <th>Hrs worked</th>
+        <th>Payment</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+    <tr>
+        <td>@item.EmployeeName</td>
+        <td>@item.Date</td>
+        <td>@item.Shift</td>
+        <td>@item.Hrs_Worked</td>
+        <td>@item.Revenue</td>
+    </tr>
+    }
+
+
+
+</table>
